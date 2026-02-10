@@ -1,0 +1,56 @@
+[project]
+name = "ai-self-awareness"
+version = "0.1.0"
+description = "Research project studying AI self-awareness through text generation identification"
+authors = [{name = "AI Self-Awareness Research", email = "research@example.com"}]
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+    "openai",
+    "requests",
+    "aiohttp",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "seaborn",
+    "python-dotenv",
+    "pydantic",
+    "typer",
+    "pyyaml",
+    "tenacity",
+    "networkx",
+    "pillow>=10.4.0",
+    "cairosvg>=2.7.1",
+    "scipy>=1.10.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "mypy",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[project.scripts]
+ai-self-awareness = "cli:main"

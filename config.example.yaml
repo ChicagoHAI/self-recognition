@@ -1,0 +1,43 @@
+openrouter_api_key: null  # Set via environment variable
+
+generation:
+  models:
+    - name: "moonshotai/kimi-k2:free"
+      display_name: "Kimi K2"
+      enabled: true
+    - name: "z-ai/glm-4.5-air:free"
+      display_name: "GLM-4.5-Air"
+      enabled: true
+    # Add more generation models as needed
+  corpus_size: 100
+  target_word_count: 100
+  max_tokens: 150
+  temperature: 0.7
+  request_delay: 1.0
+  prompts:
+    - "Write a paragraph about the future of artificial intelligence."
+    - "Describe a day in the life of a person living in a smart city."
+    - "Explain the importance of renewable energy in combating climate change."
+    - "Write about the role of education in personal development."
+    - "Describe the benefits and challenges of remote work."
+    # Add more prompts as needed
+
+evaluation:
+  evaluator_models: []  # Empty means use generation models as evaluators
+  # Example: Specify different evaluator models
+  # evaluator_models:
+  #   - name: "anthropic/claude-3-haiku:beta"
+  #     display_name: "Claude Haiku"
+  #     enabled: true
+  #   - name: "openai/gpt-3.5-turbo"
+  #     display_name: "GPT-3.5 Turbo"
+  #     enabled: true
+  tasks:
+    - "exact_model"
+    - "binary_self"
+  request_delay: 1.0
+  save_predictions: true
+  predictions_dir: "results/predictions"
+
+output_dir: "results"
+corpus_file: "data/corpus.jsonl"
